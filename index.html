@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="css/main.css">
 	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-<body>
+<body style="background: #E5E5E5">
 
 
 <div id="aboutModal" class="modal" tabindex="-1" role="dialog">
@@ -71,9 +71,10 @@
 				<div class="col-6 col-md-6 hidden-xs">
 					<h1 class="c-w text-center page-title">Pune - <span class="fwn">PMC Covid Dashboard</span></h1>
 				</div>
-				<!--<div class="col-3 col-md-3">
-					<a data-toggle="modal" data-target="#aboutModal">About</a>
-				</div>-->
+				<div class="col-3 col-md-3 rightMenu">
+					<a href="/index.html">Home</a>
+					<a href="/dashboard.html">Dashboard</a>
+				</div>
 			</div>
 		</div>
 	
@@ -140,437 +141,231 @@
 			</div>
 	</div>-->
 </header>
-<div class="page-body">
+<div class="page-body" style="background: #E5E5E5">
 	<div class="container-fluid">
-
-		<div class="accordion page-accordion" id="accordionExample">
-			<div class="card purple">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-				    <div class="card-title">
-				      COVID-19 (Total confirmed COVID cases in Pune wards)&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-				  <div class="card-body">
-				    <article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="cases1">
-						<div class="clearfix">&nbsp;</div>
-						<div class="row chart-wrapper">
-							<div class="col-sm-12 col-md-5 center">
-								<div class="row2 controls type-control">
-									<div class="pills purple df fdr">
-										<button type="button" data-type="total" class="selected"> Total Cases </button>
-										<button type="button" data-type="active" class=""> New Cases </button>
-										<!--<button type="button" data-type="recovered" class=""> Recovered </button>
-										<button type="button" data-type="deaths" class="">Deaths </button>-->
-									</div>
-								</div>
-									<div class="data-wiz data-purple">
-									<div class="color">
-										<p>Aundh</p>
-										<h1>10000</h1>
-									</div>
-								</div>
-								<div class="chart-box activeCasesChart"></div>
-							</div>
-							<div class="col-sm-12 col-md-7 center dataTabel">
-								<table class="table covid-active">
-								</table>
-							</div>
-							<!-- <div class="pulse yellow"></div> -->
+		<div class="whitecard">
+			<h5>Rapid expansion in government healthcare facilities</h5>
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">21 Mar 2021</span>
+							<span class="numbers">2291</span>
 						</div>
-						
-						<footer>
-							<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-						</footer>
-					</article>
-
-				  </div>
-				</div>
-			</div>
-			<div class="card light-red">
-				<div class="card-header" id="headingOne" data-load="healthcare">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-				    <div class="card-title">
-				      Healthcare Capacity&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  	<div class="card-body">
-					  	<div class="statistics">
-						  	<div class="row">
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in home quarantine (<span id="homeQuarantinePre"></span>)</span>
-							  			<span class="statistics-count" id="homeQuarantine">45,033</span>
-						  			</div>
-						  		</div>
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in hospitals (<span id="inHospitalsPre"></span>)</span>
-							  			<span class="statistics-count" id="inHospitals">8,293</span>
-							  		</div>
-						  		</div>
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in Covid care centres (<span id="inCCCPre"></span>)</span>
-							  			<span class="statistics-count" id="inCCC">10,000</span>
-							  		</div>
-						  		</div>
-						  	</div>
-				  		</div>
-				  		<!--<div class="ws-healthcare-map">
-				    		<canvas id="myChart" width="1000" height="500"></canvas>
-				    	</div>-->
-				    	<div class="clearfix">&nbsp;</div>
-				    	<h6 style="font-weight: bold;" class="pl-3">Government hospitals usage&nbsp;&nbsp;<span class="extraLink"><small><a target"_blank" href="https://divcommpunecovid.com/ccsbeddashboard/hsr">Hospital wise Availability Dashboard, Click here</a></small></span></h6>
-				    	<div class="col-sm-12 col-md-12 center dataTabelMax">
-							<table class="table infrastructure-use">
-							</table>
-						</div>
-						<div class="clearfix">&nbsp;</div>
-						<div class="content-box">
-							<footer>
-								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-							</footer>
-						</div>
-
-				  </div>
-				</div>
-			</div>
-			<div class="card cherry-red">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-				    <div class="card-title">
-				      Testing Data&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  <div class="card-body">
-				  	<div class="statistics">
-					  	<div class="row sstm">
-					  		<div class="col-md-4 col-sm-12 pl-0 pr-5 pr-sm-0">
-					  			<div class="row">
-						  			<div class="col-md-12 col-sm-12 pl-0 mr-md-3">
-						  				<span class="statistics-title">Tests conducted</span>
-						  			</div>
-						  			<div class="col-md-12 col-sm-12 ">
-							  			<div class="row statistics-bg dow">
-									  		<div class="col-6 border-right">
-									  			<span class="statistics-title-sub">Cumulative Tests so far</span>
-									  			<span class="statistics-count" id="CumulativeTest">1786671</span>
-									  		</div>
-									  		<div class="col-6">
-									  			<span class="statistics-title-sub">Last week</span>
-									  			<span class="statistics-count" id="lastWeekTest">1,59,772</span>
-									  		</div>
-									  	</div>
-							  		</div>
-							  	</div>
-					  		</div>
-					  		<div class="col-md-8 col-sm-12 pl-0">
-					  			<div class="row">
-					  				<div class="col-md-12 col-sm-12 pl-0 mr-md-3">
-						  				<span class="statistics-title pt-2 pb-2 pt-md-0 pb-md-0">Last One Day Test Data</span>
-						  			</div>
-						  		</div>
-					  			<div class="row statistics-bg">
-							  		<div class="col-md-3 col-6 border-right">
-							  			<span class="statistics-title-sub">Tests conducted</span>
-							  			<span class="statistics-count" id="testConduct">21325</span>
-							  		</div>
-							  		<div class="col-md-3 col-6 border-right">
-							  			<span class="statistics-title-sub">RTPCR Tests</span>
-							  			<span class="statistics-count" id="RTPCRTest">12000</span>
-							  		</div>
-							  		<div class="col-md-2 col-6 border-right">
-							  			<span class="statistics-title-sub">Antigen Tests</span>
-							  			<span class="statistics-count" id="antigenTest">9325</span>
-							  		</div>
-							  		<div class="col-md-2 col-6 border-right">
-							  			<span class="statistics-title-sub">Positive Tests</span>
-							  			<span class="statistics-count" id="positiveTest">4206</span>
-							  		</div>
-							  		<div class="col-md-2 col-6">
-							  			<span class="statistics-title-sub">Positivity Rate</span>
-							  			<span class="statistics-count"><span id="positiveRate"></span>%</span>
-							  		</div>
-						  		</div>
-				  			</div>
-					  	</div>
-					  </div>
-				    <!--
-				  	<header>
-							<h1>Total testing in Pune</h1>
-						</header>-->
-						<div class="clearfix">&nbsp;</div>
-						<div class="row">
-							<div class="col-md-5 col-sm-12 offset-md-4">
-								<div class="ws-testingMap">
-						    		<canvas id="myTesting"></canvas>
-						    	</div>
-					    	</div>
-				    	</div>
-				    	<div class="clearfix">&nbsp;</div>
-						<div class="content-box">
-							<footer>
-								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-							</footer>
-						</div>
-				  </div>
-				</div>
-			</div>
-			<div class="card light-green">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-				    <div class="card-title">
-				      Vaccinations&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  <div class="card-body">
-				  	<div class="statistics">
-						  	<div class="row">
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Total vaccinations</span>
-							  			<span class="statistics-count" id="totalVacc">45,033</span>
-						  			</div>
-						  		</div>
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">1st Dose</span>
-							  			<span class="statistics-count" id="firstDose">8,293</span>
-							  		</div>
-						  		</div>
-						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
-						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">2nd Dose</span>
-							  			<span class="statistics-count" id="secondDose">10,000</span>
-							  		</div>
-						  		</div>
-						  	</div>
-				  		</div>
-				    <div class="clearfix">&nbsp;</div>
-				    <div class="row">
-				    	<div class="col-md-6 col-sm-12">
-							<div class="ws-cases-map myVaccinationsHolder">
-					    		<canvas id="myVaccinations"></canvas>
-					    	</div>
-					    	<div class="ws-cases-map myVaccinationsHolder">
-					    		<canvas id="myVaccinationsOther"></canvas>
-					    	</div>
-				    	</div>
-				    	<div class="col-sm-12 col-md-6 center dataTabelMax">
-							<div class="row">
-					    		<div class="col-sm-12 center dataTabelMax">
-									<table class="table vaccinations-active">
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12 center dataTabelMax">
-									<table class="table vaccinations-active-details">
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<h6 style="font-weight: bold;" class="pl-3">Facilities for Vaccination</h6>
-				    		<div class="col-sm-12 col-md-12 center dataTabelMax">
-								<table class="table infrastructure-use-2">
-								</table>
-							</div>
-							</div>
-
+						<div class="card-text">
+							By 08th April , we had 7456 beds i.e. we more than doubled the number of beds.
 						</div>
 					</div>
-				    
-				    <div class="clearfix">&nbsp;</div>
-					<div class="content-box">
-						<footer>
-							<p><b>Source</b>: (i) Cases: PMC Data as of <span class="todayDate"></span></p>
-						</footer>
-					</div>
-				    
-				  </div>
 				</div>
-			</div>
-			<div class="card light-orange">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-				    <div class="card-title">
-				      Demographic analysis&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  <div class="card-body">
-					<div class="pie-options">
-						<!-- <span>
-							<input type="radio" name="pieType" id="pieCases" ><label for="pieCases">Cases</label>
-						</span>
-						<span>
-							<input type="radio" name="pieType" id="pieHospitalizations"><label for="pieHospitalizations">Hospitalizations</label>
-						</span>
-						<span>
-							<input type="radio" name="pieType" id="pieCriticalCases"><label for="pieCriticalCases">Critical Cases</label>
-						</span> -->
-						<span>
-							<label for="pieDeaths">Deaths</label>
-						</span>
-					</div>			
-					<div class="box-border">	    
-						<div class="row">
-							<div class="col-md-3 col-12 offset-md-2">
-								<div class="ws-responsive-map pie">
-									<canvas id="ageAnalysis"></canvas>
-								</div>
-							</div>
-							<div class="col-md-3 col-12 offset-md-2">
-								<div class="ws-responsive-map pie">
-									<canvas id="genderAnalysis"></canvas>
-								</div>
-							</div>
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">21 Mar 2021</span>
+							<span class="numbers">2291</span>
 						</div>
-						<div class="clearfix">&nbsp;</div>
-							<div class="content-box">
-								<footer>
-									<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-								</footer>
-							</div>
-					</div>
-					
-					<div class="clearfix">&nbsp;</div>
-					<div class="clearfix box-border">
-						<h5 class="pt-3 pl-3">Comorbidities - Deaths</h5>
-						<div class="clearfix">&nbsp;</div>
-							<div class="col-12 col-md-6 offset-md-3 center">
-					    	<div class="dataTabelMax">
-								<table class="table ComorbidityDetails">
-								</table>
-							</div>
-						</div>
-						<div class="clearfix">&nbsp;</div>
-						<div class="content-box">
-							<footer>
-								<p><b>Source</b>: (i) Cases: PMC (ii) shapefile: Datameet | <span class="todayDate"></span></p>
-							</footer>
+						<div class="card-text">
+							By 08th April , we had 7456 beds i.e. we more than doubled the number of beds.
 						</div>
 					</div>
-				    
-				  </div>
 				</div>
-			</div>
-			<div class="card light-purple">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-				    <div class="card-title">
-				      Controlling the spread&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  <div class="card-body">
-
-				    <div class="col-12 col-md-6 offset-md-3 center">
-				    	<div class="dataTabelMax">
-							<table class="table ControllingSpread">
-							</table>
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">21 Mar 2021</span>
+							<span class="numbers">2291</span>
+						</div>
+						<div class="card-text">
+							By 08th April , we had 7456 beds i.e. we more than doubled the number of beds.
 						</div>
 					</div>
-					<div class="clearfix">&nbsp;</div>
-					<div class="content-box">
-						<footer>
-							<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-						</footer>
-					</div>
-				    
-				  </div>
 				</div>
-			</div>
-			<div class="card light-yellow">
-				<div class="card-header" id="headingOne">
-				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-				    <div class="card-title">
-				      Essential information / resources&nbsp;<small>Last updated <span class="todayDate"></span></small>
-				    </div>
-				    <div class="action">
-				    	<span class="material-icons add">add</span>
-				    	<span class="material-icons remove">remove</span>
-				    </div>
-				  </h2>
-				</div>
-				<div id="collapse7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				  <div class="card-body">
-				    
-					<div class="col-12 col-md-6 offset-md-3 center">
-						<table class="table">
-								<tr>
-									<td>Hospitals With Phone Numbers<br/>रुग्णालये आणि त्यांचे दूरध्वनी क्रमांक</td>
-									<td><a href="https://www.pmc.gov.in/en/hospital_list" target="_blank">View</a></td>
-								<tr></tr>
-									<td>Vaccine Administration Centres	<br/>लसीकरण केंद्र</td>
-									<td><a href="https://www.pmc.gov.in/en/covid-vaccination-center-list" target="_blank">View</a></td>
-								<tr></tr>
-									<td>Ward helplines<br/>वॅार्ड मदतक्रमांक</td>
-									<td><a href="http://pmc.gov.in/en/corona" target="_blank">View</a></td>
-								<tr></tr>
-									<td>Ambulance<br/>रुग्णवाहिका </td>
-									<td><a href="tel:108">Dail 108</a></td>
-								</tr>
-									<td>Daily bulletin<br/>दैनंदिन प्रसिद्धीपत्रक </td>
-									<td><a href="https://pune.gov.in/corona-virus-updates/" target="_blank">View</a></td>
-								<tr></tr>
-									<td>Awareness information <br/>जनजागृतीपर माहिती </td>
-									<td><a href="https://www.pmc.gov.in/en/corona" target="_blank">View</a></td>
-								<tr></tr>
-									<td>Key government decisions and resolutions <br/>महत्वाचे शासन निर्णय</td>
-									<td><a href="https://ncdc.gov.in/index1.php?lang=1&level=1&sublinkid=703&lid=550" target="_blank">View</a><br/>
-									<a href="https://www.pmc.gov.in/en/corona" target="_blank">View</a>
-								</td>
-								</tr>
-							</thead>
-						</table>
-					</div>
-					<div class="clearfix">&nbsp;</div>
-						<div class="content-box">
-							<footer>
-								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
-							</footer>
-						</div>
-				    
-				  </div>
-				</div>
-			</div>	
+			</div><div class="clarfix">&nbsp;</div>
+			<p class="text-center">Total beds available with the govt today (across all govt hospitals, govt CC centres and other govt healthcare facilities)</p>
 		</div>
+
+		<div class="whitecard">
+			<h5>Increase in ICU Beds, ICU beds with O2 and Ventilators</h5>
+			<div class="row">
+				<div class="col-12 col-md-4 border-right">
+					<h6 class="text-center">Beds with oxygen facility </h6>
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">21 Mar 2021</span>
+								<span class="numbers">2291</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">8 april 2021</span>
+								<span class="numbers">4925</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">18 april 2021</span>
+								<span class="numbers">6002</span>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<span>Increased beds with oxygen facility from 2291 to 6002</span>
+				</div>
+				<div class="col-12 col-md-4 border-right">
+					<h6 class="text-center">ICU beds with ventilator facility</h6>
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">21 Mar 2021</span>
+								<span class="numbers">289</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">8 april 2021</span>
+								<span class="numbers">453</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">18 april 2021</span>
+								<span class="numbers">668</span>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<span>ICU beds with ventilators were more than doubled from 289 to 668</span>
+				</div>
+				<div class="col-12 col-md-4">
+					<h6 class="text-center">Total ICU beds</h6>
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">21 Mar 2021</span>
+								<span class="numbers">556</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">8 april 2021</span>
+								<span class="numbers">1009</span>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="card-section">
+								<span class="date">18 april 2021</span>
+								<span class="numbers">1270</span>
+							</div>
+						</div>
+					</div>
+					 <br/>
+					<span>Total ICU beds were more than doubled from 556 to 1270. We continue adding ICU beds every day</span>
+				</div>
+				
+			</div><div class="clarfix">&nbsp;</div>
+			<p class="text-center">Total beds available with the govt today (across all govt hospitals, govt CC centres and other govt healthcare facilities)</p>
+		</div>
+
+
+
+		<div class="whitecard">
+			<h5>Pune is No.1 in Vaccination in the entire country</h5>
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">85</span>
+							<span class="numbers">Government facilities</span>
+						</div>
+						<div class="card-text">
+							Highest per capita vaccination in the country
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">67</span>
+							<span class="numbers">Private facilities</span>
+						</div>
+						<div class="card-text">
+							6.7 lakh people vaccinated by 18th April
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="white-section">
+						<div class="card-section">
+							<span class="date">05</span>
+							<span class="numbers">24x7 vaccination</span>
+						</div>
+						<div class="card-text">
+							Vaccinated more than 10% of the adult population of the city
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="whitecard">
+					<h5>Taking Care of Healthcare and frontline workers</h5>
+					<div class="row">
+						<div class="col-12 col-md-6">
+							<div class="white-section">
+								<div class="card-section">
+									<span class="date">100%</span>
+									<span class="numbers">Coverage of Health Care Workers</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="white-section">
+								<div class="card-section">
+									<span class="date">70,000+</span>
+									<span class="numbers">Front line workers vaccinated</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix">&nbsp;</div>
+					<div class="clearfix">&nbsp;</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="whitecard">
+					<h5>Efforts to control the spread</h5>
+					<div class="row">
+						<div class="col-12 col-md-6">
+							<div class="white-section">
+								<div class="card-section">
+									<span class="date">4</span>
+									<span class="numbers">Large covid care centres in April</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="white-section">
+								<div class="card-section">
+									<span class="date">200-1250</span>
+									<span class="numbers">Increase in beds from Mar to Apr</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix">
+						Additional teams deployed for contact tracing: We regularly trace and contact 80 – 90 thousand people daily including high risk and low risk contacts
+					</div>
+				</div>
+			</div>
+		</div>			
+		
+
+
+		
+	</div>
+</div>
 		<footer class="footer-section">
 			<p>Disclaimer - Data subject to change after scrutiny and ongoing verification process</p>
 		</footer>

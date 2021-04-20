@@ -1,0 +1,593 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Pune - PMC Covid Dashboard</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="js/owl-carousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="js/owl-carousel/assets/owl.theme.default.css">
+	<link rel="stylesheet" href="assets/bootstrap-4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/odometer-0.4.6/themes/odometer-theme-minimal.css">
+
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body>
+
+
+<div id="aboutModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">About Dashboard</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The COVID-risk dashboard looks at data to understand hyper-local risk due to COVID-19 on Pune city and supplements it with micronarratives from doctors. <br><br> It combines COVID hazard, healthcare infrastructure capacity, population vulnerabilities and expert narratives to arrive at a multidimensional risk assessment for Pune city. <br><br> For further details, please refer to the report <a href="http://i-dair.org/wp-content/uploads/2021/09/2.-Pune-report_CPC-and-IDAIR-merged.pdf" target="_blank">Stories and Statistics: A multidimensional risk dashboard for COVID-19</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!--<div class="hoverbox" id="hoverbox"></div>
+	<div id="about" class="about popup">
+		<div class="content">
+			<header class="page-header text-center">
+				
+				<a href="#close" class="close">Close</a>
+			</header>
+			<div class="cont">
+				
+				
+			</div>
+		</div>
+	</div>-->
+	<!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p><![endif]-->
+	<header class="page-header">
+		<div class="container-fluid">
+			<div class="row first">
+				<div class="col-3 col-md-3">
+					<a href="https://graduateinstitute.ch/I-DAIR"><img src="img/bjp-logo-1-1.png" alt="covid-19 corona pune pune-corona update dashboard pune-corona-virus healthcare capacity vulnerabilities guidelines" class="logo"></a>
+				</div>
+				<div class="col-6 col-md-6 hidden-xs">
+					<h1 class="c-w text-center page-title">Pune - <span class="fwn">PMC Covid Dashboard</span></h1>
+				</div>
+				<div class="col-3 col-md-3 rightMenu">
+					<a href="/index.html">Home</a>
+					<a href="/dashboard.html">Dashboard</a>
+				</div>
+			</div>
+		</div>
+	
+	<div class="container-fluid top_section-details">
+		<div class="row top-numbers-header owl-carousel">
+			<div class="col item">
+				<span class="title">Total cases</span>
+				<span class="counts" id="total-num-new" >0,00,000</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Active Cases (<span class="active-Case-Per">56</span>%)</span>
+				<span class="counts" id="active-num-new">1,54,551</span><span class="counts-graph red"><span id="active-num-new-per" class="value">00,000</span><span class="material-icons activeArrow">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Recovered (<span class="recovered-Case-Per">34</span>%)</span>
+				<span class="counts" id="recoveries-num-new">1,54,551</span><span class="counts-graph green"><span id="recoveries-num-Case" class="value">0,000</span><span class="material-icons">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Deaths (<span class="deaths-Case-Per">4</span>%)</span>
+				<span class="counts" id="deaths-num-new">0,00,000</span><span class="counts-graph red"><span id="deaths-num-new-per" class="value">0,00,000</span><span class="material-icons deathsArrow">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Test Positivity Rate</span>
+				<span class="counts" id="positivityRateCont"><span id="positivityRate">0,00,000</span>% <span class="material-icons activeArrow">arrow_upward</span></span>
+
+				<!--<span class="counts-graph red"><span class="value">0,00,000</span><span class="material-icons">arrow_upward</span></span>-->
+			</div>
+			<div class="col item">
+				<span class="title">Vulnerable Vaccinated</span>
+				<span class="counts" id="vaccinatedCont"><span id="vaccinated">0,00,000</span> <span class="material-icons activeArrow">arrow_upward</span></span>
+			</div>
+		</div>
+	</div>
+
+	<!--<div class="container-fluid top_section-menu">
+		<div class="top-nav-items owl-carousel owl-menu">
+			<div class="item">
+				<a href="#covid"><span class="title">COVID-19 Hazard</span></a>
+			</div>
+			<div class="item">
+				<a href="#healthcare"><span class="title">Healthcare Capacity</span></a>
+			</div>
+			<div class="item">
+				<span class="title">Data on case load and testing</span>
+			</div>
+			<div class="item">
+				<span class="title">Vaccinations</span>
+			</div>
+			<div class="item">
+				<span class="title">Demographic analysis</span>
+			</div>
+			<div class="item">
+				<span class="title">Controlling the spread</span>
+			</div>
+			<div class="item">
+				<span class="title">Essential information / resources</span>
+			</div>
+		</div>
+			<div class="left-nav btn-prev">
+				<span class="material-icons">chevron_left</span>
+			</div>
+			<div class="right-nav btn-next">
+				<span class="material-icons">chevron_right</span>
+			</div>
+	</div>-->
+</header>
+<div class="page-body">
+	<div class="container-fluid">
+
+		<div class="accordion page-accordion" id="accordionExample">
+			<div class="card purple">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				    <div class="card-title">
+				      COVID-19 (Total confirmed COVID cases in Pune wards)&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+				  <div class="card-body">
+				    <article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="cases1">
+						<div class="clearfix">&nbsp;</div>
+						<div class="row chart-wrapper">
+							<div class="col-sm-12 col-md-5 center">
+								<div class="row2 controls type-control">
+									<div class="pills purple df fdr">
+										<button type="button" data-type="total" class="selected"> Total Cases </button>
+										<button type="button" data-type="active" class=""> New Cases </button>
+										<!--<button type="button" data-type="recovered" class=""> Recovered </button>
+										<button type="button" data-type="deaths" class="">Deaths </button>-->
+									</div>
+								</div>
+									<div class="data-wiz data-purple">
+									<div class="color">
+										<p>Aundh</p>
+										<h1>10000</h1>
+									</div>
+								</div>
+								<div class="chart-box activeCasesChart"></div>
+							</div>
+							<div class="col-sm-12 col-md-7 center dataTabel">
+								<table class="table covid-active">
+								</table>
+							</div>
+							<!-- <div class="pulse yellow"></div> -->
+						</div>
+						
+						<footer>
+							<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+						</footer>
+					</article>
+
+				  </div>
+				</div>
+			</div>
+			<div class="card light-red">
+				<div class="card-header" id="headingOne" data-load="healthcare">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+				    <div class="card-title">
+				      Healthcare Capacity&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  	<div class="card-body">
+					  	<div class="statistics">
+						  	<div class="row">
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">Active cases in home quarantine (<span id="homeQuarantinePre"></span>)</span>
+							  			<span class="statistics-count" id="homeQuarantine">45,033</span>
+						  			</div>
+						  		</div>
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">Active cases in hospitals (<span id="inHospitalsPre"></span>)</span>
+							  			<span class="statistics-count" id="inHospitals">8,293</span>
+							  		</div>
+						  		</div>
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">Active cases in Covid care centres (<span id="inCCCPre"></span>)</span>
+							  			<span class="statistics-count" id="inCCC">10,000</span>
+							  		</div>
+						  		</div>
+						  	</div>
+				  		</div>
+				  		<!--<div class="ws-healthcare-map">
+				    		<canvas id="myChart" width="1000" height="500"></canvas>
+				    	</div>-->
+				    	<div class="clearfix">&nbsp;</div>
+				    	<h6 style="font-weight: bold;" class="pl-3">Government hospitals usage&nbsp;&nbsp;<span class="extraLink"><small><a target"_blank" href="https://divcommpunecovid.com/ccsbeddashboard/hsr">Hospital wise Availability Dashboard, Click here</a></small></span></h6>
+				    	<div class="col-sm-12 col-md-12 center dataTabelMax">
+							<table class="table infrastructure-use">
+							</table>
+						</div>
+						<div class="clearfix">&nbsp;</div>
+						<div class="content-box">
+							<footer>
+								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+							</footer>
+						</div>
+
+				  </div>
+				</div>
+			</div>
+			<div class="card cherry-red">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+				    <div class="card-title">
+				      Testing Data&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+				  	<div class="statistics">
+					  	<div class="row sstm">
+					  		<div class="col-md-4 col-sm-12 pl-0 pr-5 pr-sm-0">
+					  			<div class="row">
+						  			<div class="col-md-12 col-sm-12 pl-0 mr-md-3">
+						  				<span class="statistics-title">Tests conducted</span>
+						  			</div>
+						  			<div class="col-md-12 col-sm-12 ">
+							  			<div class="row statistics-bg dow">
+									  		<div class="col-6 border-right">
+									  			<span class="statistics-title-sub">Cumulative Tests so far</span>
+									  			<span class="statistics-count" id="CumulativeTest">1786671</span>
+									  		</div>
+									  		<div class="col-6">
+									  			<span class="statistics-title-sub">Last week</span>
+									  			<span class="statistics-count" id="lastWeekTest">1,59,772</span>
+									  		</div>
+									  	</div>
+							  		</div>
+							  	</div>
+					  		</div>
+					  		<div class="col-md-8 col-sm-12 pl-0">
+					  			<div class="row">
+					  				<div class="col-md-12 col-sm-12 pl-0 mr-md-3">
+						  				<span class="statistics-title pt-2 pb-2 pt-md-0 pb-md-0">Last One Day Test Data</span>
+						  			</div>
+						  		</div>
+					  			<div class="row statistics-bg">
+							  		<div class="col-md-3 col-6 border-right">
+							  			<span class="statistics-title-sub">Tests conducted</span>
+							  			<span class="statistics-count" id="testConduct">21325</span>
+							  		</div>
+							  		<div class="col-md-3 col-6 border-right">
+							  			<span class="statistics-title-sub">RTPCR Tests</span>
+							  			<span class="statistics-count" id="RTPCRTest">12000</span>
+							  		</div>
+							  		<div class="col-md-2 col-6 border-right">
+							  			<span class="statistics-title-sub">Antigen Tests</span>
+							  			<span class="statistics-count" id="antigenTest">9325</span>
+							  		</div>
+							  		<div class="col-md-2 col-6 border-right">
+							  			<span class="statistics-title-sub">Positive Tests</span>
+							  			<span class="statistics-count" id="positiveTest">4206</span>
+							  		</div>
+							  		<div class="col-md-2 col-6">
+							  			<span class="statistics-title-sub">Positivity Rate</span>
+							  			<span class="statistics-count"><span id="positiveRate"></span>%</span>
+							  		</div>
+						  		</div>
+				  			</div>
+					  	</div>
+					  </div>
+				    <!--
+				  	<header>
+							<h1>Total testing in Pune</h1>
+						</header>-->
+						<div class="clearfix">&nbsp;</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-12 offset-md-4">
+								<div class="ws-testingMap">
+						    		<canvas id="myTesting"></canvas>
+						    	</div>
+					    	</div>
+				    	</div>
+				    	<div class="clearfix">&nbsp;</div>
+						<div class="content-box">
+							<footer>
+								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+							</footer>
+						</div>
+				  </div>
+				</div>
+			</div>
+			<div class="card light-green">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+				    <div class="card-title">
+				      Vaccinations&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+				  	<div class="statistics">
+						  	<div class="row">
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">Total vaccinations</span>
+							  			<span class="statistics-count" id="totalVacc">45,033</span>
+						  			</div>
+						  		</div>
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">1st Dose</span>
+							  			<span class="statistics-count" id="firstDose">8,293</span>
+							  		</div>
+						  		</div>
+						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
+						  			<div class="statistics-bg pl-3">
+							  			<span class="statistics-title-sub text-left">2nd Dose</span>
+							  			<span class="statistics-count" id="secondDose">10,000</span>
+							  		</div>
+						  		</div>
+						  	</div>
+				  		</div>
+				    <div class="clearfix">&nbsp;</div>
+				    <div class="row">
+				    	<div class="col-md-6 col-sm-12">
+							<div class="ws-cases-map myVaccinationsHolder">
+					    		<canvas id="myVaccinations"></canvas>
+					    	</div>
+					    	<div class="ws-cases-map myVaccinationsHolder">
+					    		<canvas id="myVaccinationsOther"></canvas>
+					    	</div>
+				    	</div>
+				    	<div class="col-sm-12 col-md-6 center dataTabelMax">
+							<div class="row">
+					    		<div class="col-sm-12 center dataTabelMax">
+									<table class="table vaccinations-active">
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 center dataTabelMax">
+									<table class="table vaccinations-active-details">
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<h6 style="font-weight: bold;" class="pl-3">Facilities for Vaccination</h6>
+				    		<div class="col-sm-12 col-md-12 center dataTabelMax">
+								<table class="table infrastructure-use-2">
+								</table>
+							</div>
+							</div>
+
+						</div>
+					</div>
+				    
+				    <div class="clearfix">&nbsp;</div>
+					<div class="content-box">
+						<footer>
+							<p><b>Source</b>: (i) Cases: PMC Data as of <span class="todayDate"></span></p>
+						</footer>
+					</div>
+				    
+				  </div>
+				</div>
+			</div>
+			<div class="card light-orange">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+				    <div class="card-title">
+				      Demographic analysis&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+					<div class="pie-options">
+						<!-- <span>
+							<input type="radio" name="pieType" id="pieCases" ><label for="pieCases">Cases</label>
+						</span>
+						<span>
+							<input type="radio" name="pieType" id="pieHospitalizations"><label for="pieHospitalizations">Hospitalizations</label>
+						</span>
+						<span>
+							<input type="radio" name="pieType" id="pieCriticalCases"><label for="pieCriticalCases">Critical Cases</label>
+						</span> -->
+						<span>
+							<label for="pieDeaths">Deaths</label>
+						</span>
+					</div>			
+					<div class="box-border">	    
+						<div class="row">
+							<div class="col-md-3 col-12 offset-md-2">
+								<div class="ws-responsive-map pie">
+									<canvas id="ageAnalysis"></canvas>
+								</div>
+							</div>
+							<div class="col-md-3 col-12 offset-md-2">
+								<div class="ws-responsive-map pie">
+									<canvas id="genderAnalysis"></canvas>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix">&nbsp;</div>
+							<div class="content-box">
+								<footer>
+									<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+								</footer>
+							</div>
+					</div>
+					
+					<div class="clearfix">&nbsp;</div>
+					<div class="clearfix box-border">
+						<h5 class="pt-3 pl-3">Comorbidities - Deaths</h5>
+						<div class="clearfix">&nbsp;</div>
+							<div class="col-12 col-md-6 offset-md-3 center">
+					    	<div class="dataTabelMax">
+								<table class="table ComorbidityDetails">
+								</table>
+							</div>
+						</div>
+						<div class="clearfix">&nbsp;</div>
+						<div class="content-box">
+							<footer>
+								<p><b>Source</b>: (i) Cases: PMC (ii) shapefile: Datameet | <span class="todayDate"></span></p>
+							</footer>
+						</div>
+					</div>
+				    
+				  </div>
+				</div>
+			</div>
+			<div class="card light-purple">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+				    <div class="card-title">
+				      Controlling the spread&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+
+				    <div class="col-12 col-md-6 offset-md-3 center">
+				    	<div class="dataTabelMax">
+							<table class="table ControllingSpread">
+							</table>
+						</div>
+					</div>
+					<div class="clearfix">&nbsp;</div>
+					<div class="content-box">
+						<footer>
+							<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+						</footer>
+					</div>
+				    
+				  </div>
+				</div>
+			</div>
+			<div class="card light-yellow">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+				    <div class="card-title">
+				      Essential information / resources&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons add">add</span>
+				    	<span class="material-icons remove">remove</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapse7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+				    
+					<div class="col-12 col-md-6 offset-md-3 center">
+						<table class="table">
+								<tr>
+									<td>Hospitals With Phone Numbers<br/>रुग्णालये आणि त्यांचे दूरध्वनी क्रमांक</td>
+									<td><a href="https://www.pmc.gov.in/en/hospital_list" target="_blank">View</a></td>
+								<tr></tr>
+									<td>Vaccine Administration Centres	<br/>लसीकरण केंद्र</td>
+									<td><a href="https://www.pmc.gov.in/en/covid-vaccination-center-list" target="_blank">View</a></td>
+								<tr></tr>
+									<td>Ward helplines<br/>वॅार्ड मदतक्रमांक</td>
+									<td><a href="http://pmc.gov.in/en/corona" target="_blank">View</a></td>
+								<tr></tr>
+									<td>Ambulance<br/>रुग्णवाहिका </td>
+									<td><a href="tel:108">Dail 108</a></td>
+								</tr>
+									<td>Daily bulletin<br/>दैनंदिन प्रसिद्धीपत्रक </td>
+									<td><a href="https://pune.gov.in/corona-virus-updates/" target="_blank">View</a></td>
+								<tr></tr>
+									<td>Awareness information <br/>जनजागृतीपर माहिती </td>
+									<td><a href="https://www.pmc.gov.in/en/corona" target="_blank">View</a></td>
+								<tr></tr>
+									<td>Key government decisions and resolutions <br/>महत्वाचे शासन निर्णय</td>
+									<td><a href="https://ncdc.gov.in/index1.php?lang=1&level=1&sublinkid=703&lid=550" target="_blank">View</a><br/>
+									<a href="https://www.pmc.gov.in/en/corona" target="_blank">View</a>
+								</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="clearfix">&nbsp;</div>
+						<div class="content-box">
+							<footer>
+								<p><b>Source</b>: (i) Cases: PMC | Data as of <span class="todayDate"></span></p>
+							</footer>
+						</div>
+				    
+				  </div>
+				</div>
+			</div>	
+		</div>
+		<footer class="footer-section">
+			<p>Disclaimer - Data subject to change after scrutiny and ongoing verification process</p>
+		</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="assets/odometer-0.4.6/odometer.min.js"></script>
+	<script src="js/vendor/d3.v4.min.js"></script>
+	<script src="https://unpkg.com/d3-simple-slider"></script>
+	<script src="assets/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+	<script src="js/owl-carousel/owl.carousel.min.js"></script>
+	<script src="assets/ChartJS/dist/chart.min.js"></script>
+	<script src="js/titles.js"></script>
+	<!--<script src="js/SupportiveFunctions.js"></script>
+	 <script src="js/main.js"></script> -->
+	<script src="js/dashboard.js?v=1.0.0"></script>
+	<script src="js/setup.js"></script>
+</body>
+
+</html>
