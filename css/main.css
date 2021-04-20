@@ -187,7 +187,7 @@ margin:10px 0px 20px 0px;
 .card-text {
     width: 80%;
 }
-.whitecard .card-section .date{
+.whitecard .card-section .numbers{
 font-size: 20px;
 font-weight: bold;
 }
@@ -195,7 +195,7 @@ font-weight: bold;
     margin: 0px 16px;
 }
 .whitecard .card-section{
-	background: #ccc;
+	background: rgba(218, 211, 211, 0.4);
     display: grid;
     height: 100%;
     width: fit-content;
