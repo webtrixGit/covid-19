@@ -1,0 +1,16 @@
+jQuery(document).ready(function ($) {
+    'use strict';
+
+    /////////////////////////////////////////////////////////////////////////// AOS INIT
+    AOS.init();
+
+    /////////////////////////////////////////////////////////////////////////// UPDATE ALL THE TITLES
+    var updatedTitle = function(id, obj) {
+        $('#' + id).find('header h1').text(obj.heading);
+        $('#' + id).find('header h3').text(obj.sub);
+    }
+    
+    /////////////////////////////////////////////////////////////////////////// DATA HANDLER FUNCTION
+    
+
+});

@@ -1,0 +1,852 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Pune - Pandemic Risk Dashboard</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="js/owl-carousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="js/owl-carousel/assets/owl.theme.default.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="assets/bootstrap-4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body>
+
+
+	<div class="hoverbox" id="hoverbox"></div>
+	<div id="about" class="about popup">
+		<div class="content">
+			<header class="page-header text-center">
+				About Dashboard
+				<a href="#close" class="close">Close</a>
+			</header>
+			<div class="cont">
+				<!-- ////////////////////////////// ADD ABOUT US CONTENT HERE -->
+				The COVID-risk dashboard looks at data to understand hyper-local risk due to COVID-19 on Pune city and supplements it with micronarratives from doctors. <br><br> It combines COVID hazard, healthcare infrastructure capacity, population vulnerabilities and expert narratives to arrive at a multidimensional risk assessment for Pune city. <br><br> For further details, please refer to the report <a href="http://i-dair.org/wp-content/uploads/2020/09/2.-Pune-report_CPC-and-IDAIR-merged.pdf" target="_blank">Stories and Statistics: A multidimensional risk dashboard for COVID-19</a>
+			</div>
+		</div>
+	</div>
+	<!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</p><![endif]-->
+	<header class="page-header">
+		<div class="container-fluid">
+			<div class="row first">
+				<div class="col-xs-6 col-sm-2">
+					<a href="https://graduateinstitute.ch/I-DAIR" class="nav-logo"><!-- <img src="img/GHC-idair-logoblue.png" alt="covid-19 corona pune pune-corona update dashboard pune-corona-virus healthcare capacity vulnerabilities guidelines"> -->Logo</a>
+				</div>
+				<div class="col-xs-6 col-sm-8 hidden-xs">
+					<h1 class="c-w text-center page-title">Pune - <span class="fwn">Pandemic Risk Dashboard</span></h1>
+				</div>
+				<div class="col-xs-6 col-sm-2">
+					<a href="#about" class="popup-trigger">About</a><br/>
+					<span class="lastTime">Last Updated: 13/04/2021 10:30 pm</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 visible-xs">
+					<h1 class="c-w text-center page-title">Pune - <span class="fwn">Pandemic Risk Dashboard</span></h1>
+				</div>
+			</div>
+		</div>
+	
+	<div class="container-fluid top_section-details">
+		<div class="row top-numbers-header owl-carousel">
+			<div class="col item">
+				<span class="title">Total cases</span>
+				<span class="counts" id="total-num-new">1,54,551</span><span class="counts-graph red"><span class="value">10,000</span><span class="material-icons">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Active Cases</span>
+				<span class="counts" id="active-num-new">1,54,551</span><span class="counts-graph red"><span class="value">10,000</span><span class="material-icons">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Recovered</span>
+				<span class="counts" id="recoveries-num-new">1,54,551</span><span class="counts-graph red"><span class="value">10,000</span><span class="material-icons">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Deaths</span>
+				<span class="counts" id="deaths-num-new">1,54,551</span><span class="counts-graph red"><span class="value">10,000</span><span class="material-icons">arrow_upward</span></span>
+			</div>
+			<div class="col item">
+				<span class="title">Test positivity rate</span>
+				<span class="counts"><span id="positivityRate">34</span>%</span>
+			</div>
+			<div class="col item">
+				<span class="title">Vaccinated</span>
+				<span class="counts"><span id="vaccinated">16</span>%</span>
+			</div>
+		</div>
+	</div>
+
+	<!--<div class="container-fluid top_section-menu">
+		<div class="top-nav-items owl-carousel owl-menu">
+			<div class="item">
+				<a href="#covid"><span class="title">COVID-19 Hazard</span></a>
+			</div>
+			<div class="item">
+				<a href="#healthcare"><span class="title">Healthcare Capacity</span></a>
+			</div>
+			<div class="item">
+				<span class="title">Data on case load and testing</span>
+			</div>
+			<div class="item">
+				<span class="title">Vaccinations</span>
+			</div>
+			<div class="item">
+				<span class="title">Demographic analysis</span>
+			</div>
+			<div class="item">
+				<span class="title">Controlling the spread</span>
+			</div>
+			<div class="item">
+				<span class="title">Essential information / resources</span>
+			</div>
+		</div>
+			<div class="left-nav btn-prev">
+				<span class="material-icons">chevron_left</span>
+			</div>
+			<div class="right-nav btn-next">
+				<span class="material-icons">chevron_right</span>
+			</div>
+	</div>-->
+</header>
+<div class="page-body">
+	<div class="container-fluid">
+
+		<div class="accordion " id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+				  <h2 class="mb-0">
+				    <div class="" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				      COVID-19 Hazard
+				    </div>
+				    <div class="action">
+				    	<span class="material-icons">add</span>
+				    </div>
+				  </h2>
+				</div>
+				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+				  <div class="card-body">
+				    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+				  <h2 class="mb-0">
+				    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				      Collapsible Group Item #2
+				    </button>
+				  </h2>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				  <div class="card-body">
+				    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingThree">
+				  <h2 class="mb-0">
+				    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				      Collapsible Group Item #3
+				    </button>
+				  </h2>
+				</div>
+				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+				  <div class="card-body">
+				    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			</div>
+			</div>
+
+		<!-- <div class="row top-numbers-wrapper">
+			<div class="col-xs-6 col-md-3 totalCasesTop">
+				<h2>
+					<span class="normal small">Total cases</span>
+					<span class="medium" id="total-num">154,581</span>
+				</h2>
+			</div>
+			<div class="col-xs-6 col-md-3 activeCasesTop">
+				<h2>
+					<span class="normal small">Active cases</span>
+					<span id="active-num">12,285</span>
+				</h2>
+			</div>
+			<div class="col-xs-6 col-md-3 recoveriesTop">
+				<h2>
+					<span class="normal small">Recoveries</span>
+					<span id="recoveries-num">142,296</span>
+				</h2>
+			</div>
+			<div class="col-xs-6 col-md-3 deathsTop">
+				<h2>
+					<span class="normal small">Deaths</span>
+					<span id="deaths-num">3,844</span>
+				</h2>
+			</div>
+		</div> -->
+		<!-- <div class="row main-nav">
+			<div class="col-xs-12 col-sm-6 col-lg-3">
+				<button href="#covid" data-aos="zoom-in-up" data-aos-delay="" class="main-links covid-19-hazard yellow">
+					<span class="left dark-yellow">
+						<img src="img/hazard-icn.png" alt="">
+					</span>
+					<span class="right">
+						COVID-19 HAZARD
+					</span>
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-lg-3">
+				<button href="#healthcare" data-aos="zoom-in-up" data-aos-delay="100" class="main-links healthcare-capacity green">
+					<span class="left dark-green">
+						<img src="img/healthcare-icn.png" alt="">
+					</span>
+					<span class="right">
+						HEALTHCARE CAPACITY
+					</span>
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-lg-3">
+				<button href="#vulnerabilities" data-aos="zoom-in-up" data-aos-delay="150" class="main-links vulnerabilities red">
+					<span class="left dark-red">
+						<img src="img/vulnerabilities-icn.png" style="margin-top: 10px;" alt="">
+					</span>
+					<span class="right">
+						VULNERABILITIES
+					</span>
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-lg-3">
+				<button href="#micronarratives" data-aos="zoom-in-up" data-aos-delay="200" class="main-links micronarratives blue">
+					<span class="left dark-blue">
+						<img src="img/micronarratives-icn.png" alt="">
+					</span>
+					<span class="right">
+						MICRONARRATIVES
+					</span>
+				</button>
+			</div>
+		</div>
+ -->
+		<!-- <div class="row">
+			<div class="col-xs-12">
+				<div class="panel yellow">
+					<div class="top">
+						<h1>COVID-19 Hazard</h1>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="row">
+			<div class="col-xs-12">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="cases">
+					<header>
+						<h1>Total confirmed COVID cases in Pune wards</h1>
+						<h3>Map shows the total, active, recovered cases and deaths due to COVID in 14 wards</h3>
+					</header>
+					<div class="row chart-wrapper">
+						<div class="col-xs-12 col-md-2 left">
+							<div class="data-wiz">
+								<div class="color yellow">
+									<p></p>
+									<h1></h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-8 center">
+							<div class="chart-box"></div>
+						</div>
+						<div class="col-xs-12 col-md-2 right">
+							<!--  -->
+						</div>
+						<!-- <div class="pulse yellow"></div> -->
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls type-control">
+							<div class="pills yellow df fdr">
+								<button type="button" data-type="total" class="selected"> Total Cases </button>
+								<button type="button" data-type="active" class=""> New Cases </button>
+								<button type="button" data-type="recovered" class=""> Recovered </button>
+								<!-- <button type="button" data-type="deaths" class=""> Deaths </button> -->
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) Cases: PMC (ii) shapefile: Datameet | Data as of 11/10/2020</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="growth">
+					<header>
+						<h1>Growth of cases</h1>
+						<h3>Pune is seeing a slowdown in the growth of cases, southern and eastern wards in Pune see a higher growth rate of cases</h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+					</div>
+					<div class="row2 controls-wrapper">
+						 <div class="row2 controls controls-sort">
+							<div class="pills yellow df fdr">
+								<button type="button" data-time="all" class="selected"> All data </button>
+								<button type="button" data-time="month" class=""> Last month </button>
+								<button type="button" data-time="week" class=""> Last Week </button>
+							</div>
+						</div>
+						<div class="row2 controls controls-type">
+							<div class="pills yellow df fdr">
+								<button type="button" data-type="city-trajectory" class="selected"> City Trajectory </button>
+								<button type="button" data-type="CGR" class=""> Growth Rate </button>
+								<button type="button" data-type="ward-trajectory" class=""> Ward Trajectory </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) Cases: PMC (ii) shapefile: Datameet | Data as as of 12/10/2020</p>
+					</footer>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="tests">
+					<header>
+						<h1>COVID Test Positivity Rate (TPR) in Pune district</h1>
+						<h3>High TPR indicates the need for more testing. WHO recommends that TPR should be below 5% consistently for 14 days for restrictions to be eased</h3>
+						<span class="border"></span>
+					</header>
+					<div class="row chart-wrapper small">
+						<div class="col-xs-12 center">
+							<div class="chart-box"></div>
+						</div>
+						<!-- <div class="pulse yellow"></div> -->
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls sort-control">
+							<div class="pills yellow df fdr">
+								<button type="button" data-sort="allData" class="selected"> All data </button>
+								<button type="button" data-sort="lastMonth" class=""> Last month </button>
+								<button type="button" data-sort="lastWeek" class=""> Last Week </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) District Information Office Pune| Data as as of 12/10/2020</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+
+
+		
+
+		<div class="row" id="healthcare">
+			<div class="col-xs-12">
+				<span class="section-devider"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel green">
+					<div class="top">
+						<h1>Healthcare Capacity</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="projections">
+					<header>
+						<h1>Projecting requirement for healthcare infrastructure</h1>
+						<h3>Projections are done for Oxygen beds, ICU beds and ventilators for three scenarios</h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper">
+
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls controls-sort">
+							<div class="pills green df fdr">
+								<button type="button" data-sort="allData" class="selected"> All data </button>
+								<button type="button" data-sort="lastMonth" class=""> Last month </button>
+								<button type="button" data-sort="lastWeek" class=""> Last Week </button>
+							</div>
+						</div>
+						<div class="row2 controls controls-type">
+							<div class="pills green df fdr">
+								<button type="button" data-type="O2_beds" class="selected"> Oxygen Beds </button>
+								<button type="button" data-type="ICU_beds" class=""> ICU Beds </button>
+								<button type="button" data-type="Ventilator_beds" class=""> Ventilator Beds </button>
+								<button type="button" data-type="projections" class=""> Projections </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: PMC dashboard (data till 12th July) and Pune Division COVID care Software (data from 27th July onwards) | Data as of 11/10/2020</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="cfr">
+					<header>
+						<h1>Demographic distribution of cases, deaths and Case Fatality Rate (CFR)</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 text-center">
+							<div id="slider-vertical"></div>
+						</div>
+						<div class="row2 controls controls-sort">
+							<div class="pills green df fdr">
+								<button type="button" data-sort="allData" class="selected"> All data </button>
+								<button type="button" data-sort="lastMonth" class=""> Last month </button>
+								<button type="button" data-sort="lastWeek" class=""> Last Week </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) PMC | Data as of 12/07/2020</p>
+					</footer>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="cr">
+					<header>
+						<h1>Status of critical patients and deaths</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls controls-sort">
+							<div class="pills green df fdr">
+								<button type="button" data-sort="allData" class="selected"> All data </button>
+								<button type="button" data-sort="lastMonth" class=""> Last month </button>
+								<button type="button" data-sort="lastWeek" class=""> Last Week </button>
+							</div>
+						</div>
+						<div class="row2 controls controls-type">
+							<div class="pills green df fdr">
+								<button type="button" data-type="cr" class="selected"> CR/CFR </button>
+								<button type="button" data-type="icu" class=""> Ventilator/ICU </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) PMC | Data as of 01/10/2020</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+
+
+
+
+		<div class="row" id="vulnerabilities">
+			<div class="col-xs-12">
+				<span class="section-devider"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel red">
+					<div class="top">
+						<h1>Vulnerabilities</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="density">
+					<header>
+						<h1>Spatial vulnerabilities</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="row chart-wrapper">
+						<div class="col-xs-12 col-md-2 left">
+							<div class="data-wiz">
+								<div class="color red">
+									<p></p>
+									<h1></h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-8 center">
+							<div class="chart-box"></div>
+						</div>
+						<div class="col-xs-12 col-md-2 right">
+							<!--  -->
+						</div>
+						<!-- <div class="pulse yellow"></div> -->
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls type-control">
+							<div class="pills red df fdr">
+								<button type="button" data-type="density" class="selected"> Population density </button>
+								<button type="button" data-type="slumDensity" class=""> Slum population density </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) Population: census 2011 (ii) shapefile and ward area: Datameet (iii) slum shapefiles- Mundhe (2018) (iv) slum population- Pune DCHB Part B, census 2011</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="comorbid">
+					<header>
+						<h1>Health vulnerabilities <span class="dd"><br>&nbsp;</span></h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="row2 chart-wrapper small">
+						<div class="row">
+							<div class="col-xs-12 col-md-8 center">
+								<div class="chart-box"></div>
+							</div>
+							<div class="col-xs-12 col-md-4 left">
+								<div class="data-wiz">
+									<div class="color red">
+										<p></p>
+										<h1></h1>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="pulse yellow"></div> -->
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls type-control">
+							<div class="pills red df fdr">
+								<button type="button" data-type="comorbid" class="selected"> Co-morbid </button>
+								<button type="button" data-type="pregnant" class=""> Pregnant </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) PMC (ii) shapefile: Datameet| Data as as of 9/07/2020</p>
+					</footer>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="wash">
+					<header>
+						<h1>Water, sanitation and hygiene (WASH) vulnerabilities</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="row2 chart-wrapper small">
+						<div class="row">
+							<div class="col-xs-12 col-md-8 center">
+								<div class="chart-box"></div>
+							</div>
+							<div class="col-xs-12 col-md-4 left">
+								<div class="data-wiz">
+									<div class="color red">
+										<p></p>
+										<h1></h1>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="pulse yellow"></div> -->
+					</div>
+					<div class="row2 controls-wrapper">
+						<div class="row2 controls type-control">
+							<div class="pills red df fdr">
+								<button type="button" data-type="wash" class="selected"> WASH infrastructure in slums </button>
+								<button type="button" data-type="toilets" class=""> Toilets </button>
+								<button type="button" data-type="publicTaps" class=""> Public taps </button>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p><b>Source</b>: (i) slum shapefiles- Mundhe (2018) (ii) slum population- Pune DCHB Part B, census 2011 (iii) prabhag shapefile- Datameet</p>
+					</footer>
+				</article>
+			</div>
+		</div>
+
+
+		<div class="row" id="micronarratives">
+			<div class="col-xs-12">
+				<span class="section-devider"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel blue">
+					<div class="top">
+						<h1>Micronarratives<br><span class="small">Treatment Protocols</span></h1>
+					</div>
+					<div class="white">
+						<p>What insights do doctors and patients have on the effects of the disease and effectiveness of treatment based on their experience.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="">
+					<header>
+						<h1>Long term effects observed by doctors...<br>&nbsp;</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper buuble-chart chart-one small">
+						<div class="bubble one">Very early to say</div>
+						<div class="bubble two">Lung fibrosis possible...<br>rare to restore<br>to normal lunch functions</div>
+						<div class="bubble three">Difficulty breathing,<br>pain while breathing</div>
+						<div class="bubble four">Mental<br>health,<br>cognitive<br>functions<br>affected</div>
+						<div class="bubble five">Viral<br>respiratory<br>diseases<br>should<br>normally<br>not have<br>effects,<br>unless</div>
+						<div class="bubble six">Could be<br>long term<br>damage or<br>cardiovascular<br>disease"</div>
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-1">
+					<header>
+						<h1>Long term effects reported by COVID survivors...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200">
+					<header>
+						<h1>Leading cause of death apart from co-morbidities...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper buuble-chart chart-two small">
+						<div class="bubble one">Late admissions</div>
+						<div class="bubble two">Stress,<br>negative<br>attitude</div>
+						<div class="bubble three">ARDS, MORDS,<br>immune cytokine<br>storm, hyper<br>coagulation</div>
+						<div class="bubble four">existent lung disease<br>or if a person is<br>a heavy smoker If<br>immunocompromised, the<br>progression of disease<br>is very fast.</div>
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200">
+					<header>
+						<h1>What treatment is found to be effective...<span class="dd"><br>&nbsp;</span< /h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper buuble-chart chart-three small">
+						<div class="bubble one">If O2 given<br>early, the<br>recovery is<br>very good</div>
+						<div class="bubble two">Give tailored<br>drugs based<br>on patient<br>health, pre<br>existing conditions,<br>what suits<br>patients etc.</div>
+						<div class="bubble three">If drugs given in the<br>right setting and time,<br>very few complications</div>
+						<div class="bubble four">There is a narrow<br>window where<br>treatment works</div>
+						<div class="bubble five">Ventilator is the very last resort. Only if everything else fails</div>
+					</div>
+				</article>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel blue">
+					<div class="top">
+						<h1>Micronarratives<br><span class="small">Epidemiology Insights</span></h1>
+					</div>
+					<div class="white">
+						<p>What epidemiological insights do micronarratives reveal about the nature of the virus and the incidence, spread, and possible control of diseases.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200"  id="micro-bargraph-2">
+					<header>
+						<h1>What makes COVID dangerous?<span class="dd"><br>&nbsp;</span< /h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200">
+					<header>
+						<h1>Why has the case fatality rate reduced over time...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+						<div class="chart-wrapper buuble-chart chart-four small">
+							<div class="bubble one">knowledge and drugs improving...</div>
+							<div class="bubble two">Increased testing,<br>early testing<br>and detection,<br>early treatment...</div>
+							<div class="bubble three">Preparedness<br>and protocols<br>have improved</div>
+							<div class="bubble four">More you see it, better at handling it, more and more confident</div>
+							<div class="bubble five">Gut instinct as a clinician gets better with time...</div>
+							<div class="bubble six">Improved and expanded healthcare capacity rapidly</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-3">
+					<header>
+						<h1>What makes COVID dangerous?<span class="dd"><br>&nbsp;</span< /h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-4">
+					<header>
+						<h1>Why has the case fatality rate reduced over time...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel blue">
+					<div class="top">
+						<h1>Micronarratives<br><span class="small">Policy recommendations</span></h1>
+					</div>
+					<div class="white">
+						<p>What insights about hospital management, infrastructure burden do doctors provide that could help guide decision makers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-5">
+					<header>
+						<h1>Interventions needed...<span class="dd"><br>&nbsp;</span< /h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-6">
+					<header>
+						<h1>Infection rate among healthcare workers...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200" id="micro-bargraph-7">
+					<header>
+						<h1>Mental health of healthcare workers...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper small">
+
+					</div>
+				</article>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<article class="content-box" data-aos="zoom-in-up" data-aos-offset="200">
+					<header>
+						<h1>Impact on non-COVID care...</h1>
+						<h3></h3>
+						<span class="border"></span>
+					</header>
+					<div class="chart-wrapper buuble-chart chart-five small">
+						<div class="bubble one">Elective<br>surgeries<br>had to be<br>delayed</div>
+						<div class="bubble two">Patients not turning up due to fear of<br>contracting Covid19</div>
+						<div class="bubble three">Shutting of facilities</div>
+						<div class="bubble four">Reducing beds to maintain<br>social distance between patients</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div class="row2 page-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 left">
+					&copy; 2020 All rights reserverd to I-DAIR
+				</div>
+				<div class="col-xs-12 col-md-6 right">
+					CPC Analytics
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="js/vendor/d3.v4.min.js"></script>
+	<script src="js/vendor/odometer.min.js"></script>
+	<script src="https://unpkg.com/d3-simple-slider"></script>
+	<script src="assets/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+	<script src="js/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/titles.js"></script>
+	<script src="js/SupportiveFunctions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/setup.js"></script>
+</body>
+
+</html>
