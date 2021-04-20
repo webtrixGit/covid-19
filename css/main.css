@@ -166,6 +166,46 @@ h2[aria-expanded=true] .add {
 h2[aria-expanded=false] .remove {
    display: none;
 }
+.whitecard{
+	background: #fff;
+    border: 1px solid #DAD3D3;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 15px;
+}
+.whitecard h5{
+margin:10px 0px 20px 0px;
+}
+.whitecard h6{
+margin:10px 0px 20px 0px;
+}
+.rightMenu{
+	    line-height: 49px;
+    text-align: right;
+    padding-right: 10px;
+}
+.card-text {
+    width: 80%;
+}
+.whitecard .card-section .date{
+font-size: 20px;
+font-weight: bold;
+}
+.rightMenu a{
+    margin: 0px 16px;
+}
+.whitecard .card-section{
+	background: #ccc;
+    display: grid;
+    height: 100%;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 12px;
+}
+.whitecard .white-section{     border-right: 1px solid #ccc;
+    display: inline-block;}
 
 .scroll .top_section-details .item .counts-graph{
 	line-height: 11px;
