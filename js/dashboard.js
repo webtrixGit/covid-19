@@ -10,11 +10,15 @@ var __demographic_Details_MF=[];
 var __comorbidity_Details=[];
 var __vaccination_DetailsWeek=[];
 var __date="";
-var _yesterday_active = 6434;
-var _yesterday_deaths = 53;
-var _yesterday_recovered = 304492;
-var _yesterday_positive_rate = 24.51;
-var _yesterday_vcc = 672252;
+var _yesterday_active = 54696;
+var _yesterday_deaths = 54;
+var _yesterday_recovered = 310965;
+var _yesterday_positive_rate =21.96;
+var _yesterday_vcc = 691927;
+var _WeeklyDate = "16 April 21";
+
+
+
 function createTable(el,data,type){
         if(type == "new"){
             
@@ -154,7 +158,7 @@ $(document).ready(function(){
                         dataHandler.cases.tableData.push(
                             {
                                 Ward_Office_Name: __cityMapDataList[i]['ward_name'],
-                                total_Cases       : ++__cityMapDataList[i]['total_case'],
+                                total_Cases       : +__cityMapDataList[i]['total_case'],
                                 Total_New_Cases      : +__cityMapDataList[i]['total_new_case'],
                             }
                         );
@@ -201,10 +205,10 @@ $(document).ready(function(){
     var mystat = new Chart(ctx,{
         type: "line",
         data: {
-        labels: ["21 March 21", "28 March 21","01 Apr 21","04 Apr 21","08 Apr 21","15 Apr 21","17 Apr 21"],
+        labels: ["21 March 21", "28 March 21","01 Apr 21","04 Apr 21","08 Apr 21","15 Apr 21","16 Apr 21","17 Apr 21","18 Apr 21","19 Apr 21","20 Apr 21"],
         datasets: [{
-            label: 'Positive Rate',
-            data: [22.43,26.51,19.84,35.02,29.71,24.61,24.5],
+            label: 'Test Positive Rate',
+            data: [22.43,26.51,19.84,35.02,29.71,24.61,22.8,24.5,26.7,21.95,25.4],
              backgroundColor: [
               '#f4765c',
               '#f98f76',
@@ -398,7 +402,7 @@ $(document).ready(function(){
         });
     //read data
     //
-	$.getJSON('data/data-19-april-21.json', function(jd) {
+	$.getJSON('data/data-20-april-21.json', function(jd) {
 
 		$.each(jd, function(key,value){
 			__date = value.date;
@@ -419,6 +423,8 @@ $(document).ready(function(){
 		createTable("vaccinations-active",__vaccination_Details,'new');
 		createTable("vaccinations-active-details",__vaccination_DetailsWeek,'new');
 		$(".todayDate").html(__date);
+        $(".WeeklyDate").html(_WeeklyDate);
+        
 	    createTable("infrastructure-use-2",__medicine_use_Details,'new');
 	    createTable("ControllingSpread",__controlling_spread,'old');
 	    createTable("ComorbidityDetails",__comorbidity_Details,'old');
@@ -506,18 +512,18 @@ $(document).ready(function(){
 		}
 
 
-	    var PosRateArrow = parseFloat(__hot_details.test_positive_rate.replace("%")) - parseFloat(_yesterday_positive_rate);
-	    if(PosRateArrow > 0 ){
-	    	$("#positivityRateCont").addClass("red");
-	    	$("#positivityRateCont").find(".activeArrow").html("arrow_upward");
-	    }else{
-	    	$("#positivityRateCont").addClass("green");
-	    	$("#positivityRateCont").find(".activeArrow").html("arrow_downward");
-	    }
+	    var PosRateArrow = (parseFloat(__hot_details.test_positive_rate.replace("%")) - parseFloat(_yesterday_positive_rate)).toFixed(2);
+        if(PosRateArrow > 0 ){
 
-
-
-	     
+            $("#positivityRateCont").addClass("red");
+            $("#positivityRateCont").find(".activeArrow").html("arrow_upward");
+        }else{
+            alert("up");
+            $("#positivityRateCont").addClass("green");
+            $("#positivityRateCont").find(".activeArrow").html("arrow_downward");
+        }
+        $("#positivityRate-per").html(PosRateArrow+"%");
+ 
 	    
 	    var el4 = document.querySelector('#deaths-num-new');
 	    if(el4 != null){
@@ -530,22 +536,23 @@ $(document).ready(function(){
 		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
 		    od4.update(__hot_details.test_positive_rate);
 		}
-
-	    var el4 = document.querySelector('#active-num-new-per');
-	    if(el4 != null){
-		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
-		    od4.update( parseInt(value.daily_cases));
-		}
-
-	    if(parseInt(_yesterday_active) > parseInt(value.daily_cases)){
-	    	$(".activeArrow").html("arrow_downward");
-	    	$(".activeArrow").parent(".counts-graph").removeClass("red");
-	    	$(".activeArrow").parent(".counts-graph").addClass("green");
-	    }else{
-	    	$(".activeArrow").html("arrow_upward");
-	    	$(".activeArrow").parent(".counts-graph").addClass("red");
-	    	$(".activeArrow").parent(".counts-graph").removeClass("green");
-	    }
+        var totalActToday = parseInt(value.total_active) -parseInt(_yesterday_active);
+        var el4 = document.querySelector('#active-num-new-per');
+        if(el4 != null){
+            var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
+            od4.update( parseInt(totalActToday));
+        }
+        
+        if( totalActToday < 0){
+            $("#activeNumnew-per").find(".activeArrow").html("arrow_downward");
+            $("#activeNumnew-per").removeClass("red");
+            $("#activeNumnew-per").addClass("green");
+        }else{
+            $("#activeNumnew-per").find(".activeArrow").html("arrow_upward");
+            $("#activeNumnew-per").removeClass("green");
+            $("#activeNumnew-per").addClass("red");
+        }
+        
 	    
 	    var perLastActive = (parseInt(value.total_active) * 100  / parseInt(__hot_details.total_cases)).toFixed(2);
 	    $(".active-Case-Per").html(perLastActive);
@@ -587,7 +594,7 @@ $(document).ready(function(){
 	function preparedHealthCareDetails(key,value){
 
 		//__gov_hospital_use_Details.push({Parameters:"Total Govt. Hospital Beds For COVID-19","Total":value.Total_govt_beds,"Vacant":value.Vacant_beds});
-		__gov_hospital_use_Details.push( { header :{title:"Type",count:"Total Govt. Hospital Beds For COVID-19"},
+		__gov_hospital_use_Details.push( { header :{title:"Type",count:"Total Hospital Beds For COVID-19"},
 		total_beds : {title:"Total Beds",count:value.Total_govt_beds},
 		vacant_beds : {title:"Vacant Beds",count:value.Vacant_beds}});
 
@@ -768,13 +775,21 @@ $(document).ready(function(){
 		    od4.update(totalVacc);
 		}
 
-	    if(totalVacc > _yesterday_vcc ){
-	    	$("#vaccinatedCont").addClass("green");
-	    	$("#vaccinatedCont").find(".activeArrow").html("arrow_upward");
-	    }else{
-	    	$("#vaccinatedCont").addClass("red");
-	    	$("#vaccinatedCont").find(".activeArrow").html("arrow_downward");
-	    }
+	    var vccDiff = totalVacc - _yesterday_vcc;
+        if(totalVacc > _yesterday_vcc ){
+            $("#VCCContDiff").addClass("green");
+            $("#vaccinatedCont").find(".activeArrow").html("arrow_upward");
+        }else{
+            $("#VCCContDiff").addClass("red");
+            $("#vaccinatedCont").find(".activeArrow").html("arrow_downward");
+        }
+    
+        var el4 = document.querySelector('#VCCContDiffPer');
+        if(el4 != null){
+            var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
+            od4.update(vccDiff);
+        }
+
 
 	    var el4 = document.querySelector('#totalVacc');
 	    if(el4 != null){

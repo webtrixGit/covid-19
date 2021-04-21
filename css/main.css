@@ -155,7 +155,7 @@
 	color: #212121;
 	min-width: 45px;
 	text-align: center;
-	margin-left: 9px;
+	margin-left: 2px;
 	position: relative;
 	padding: 0px 8px;
 	width: auto;
@@ -377,7 +377,7 @@ background:#521d5c;
     margin-bottom: 10px;
 }
 .statistics .statistics-count{
-	font-size: 34px;
+	font-size: 28px;
     display: block;
     font-weight: bold;
 }
@@ -582,6 +582,9 @@ background: #020b25  !important;;
 
 	.extraLink{
 		display: block;
+	    clear: both;
+	    margin: 12px;
+	    text-align: left;
 	}
 
 	.page-body {
@@ -602,12 +605,34 @@ background: #020b25  !important;;
 	.dow{
 		width: 100%;
 	}
+	.rightMenu {
+	    line-height: 49px;
+	    text-align: left;
+	    padding-right: 1px;
+	}
+	.rightMenu a {
+    	margin: 0px 2px;
+	}
 }
 @media screen and (max-width: 300px){
 
+	.extraLink{
+		display: block;
+	    clear: both;
+	    margin: 12px;
+	    text-align: left;
+	}
 	.page-body {
 	    background: #fff;
 	    margin-top: 260px;
 	    padding-top: 10px;
+	}
+	.rightMenu {
+	    line-height: 49px;
+	    text-align: left;
+	    padding-right: 1px;
+	}
+	.rightMenu a {
+    	margin: 0px 2px;
 	}
 }

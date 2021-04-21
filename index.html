@@ -12,8 +12,25 @@
 	<title>Pune - PMC Covid Dashboard</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/fav/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/fav/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/fav/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/fav/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+	<link rel="manifest" href="/fav/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 	
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -65,13 +82,13 @@
 	<header class="page-header">
 		<div class="container-fluid">
 			<div class="row first">
-				<div class="col-3 col-md-3">
+				<div class="col-2 col-md-3">
 					<a href="https://graduateinstitute.ch/I-DAIR"><img src="img/bjp-logo-1-1.png" alt="covid-19 corona pune pune-corona update dashboard pune-corona-virus healthcare capacity vulnerabilities guidelines" class="logo"></a>
 				</div>
-				<div class="col-6 col-md-6 hidden-xs">
+				<div class="col-5 col-md-6 hidden-xs">
 					<h1 class="c-w text-center page-title">Pune - <span class="fwn">PMC Covid Dashboard</span></h1>
 				</div>
-				<div class="col-3 col-md-3 rightMenu">
+				<div class="col-5 col-md-3 rightMenu">
 					<a href="/index.html">Home</a>
 					<a href="/dashboard.html">Dashboard</a>
 				</div>
@@ -82,11 +99,15 @@
 		<div class="row top-numbers-header owl-carousel">
 			<div class="col item">
 				<span class="title">Total cases</span>
-				<span class="counts" id="total-num-ne" >0,00,000</span></span>
+				<span class="counts" id="total-num-new" >0,00,000</span></span>
 			</div>
 			<div class="col item">
 				<span class="title">Active Cases (<span class="active-Case-Per">56</span>%)</span>
-				<span class="counts" id="active-num-ne">1,54,551</span><span class="counts-graph red"><span id="active-num-new-per" class="value">00,000</span><span class="material-icons activeArrow">arrow_upward</span></span>
+				<span class="counts" id="active-num-new">1,54,551</span>
+				<span id="activeNumnew-per" class="counts-graph red">
+					<span id="active-num-new-per" class="value">00,000</span>
+					<span class="material-icons activeArrow">arrow_upward</span>
+				</span>
 			</div>
 			<div class="col item">
 				<span class="title">Recovered (<span class="recovered-Case-Per">34</span>%)</span>
@@ -94,17 +115,31 @@
 			</div>
 			<div class="col item">
 				<span class="title">Deaths (<span class="deaths-Case-Per">4</span>%)</span>
-				<span class="counts" id="deaths-num-new">0,00,000</span><span class="counts-graph red"><span id="deaths-num-new-per" class="value">0,00,000</span><span class="material-icons deathsArrow">arrow_upward</span></span>
+				<span class="counts" id="deaths-num-new">0,00,000</span>
+				<span class="counts-graph red">
+					<span id="deaths-num-new-per" class="value">0,00,000</span>
+					<span class="material-icons deathsArrow">arrow_upward</span>
+				</span>
 			</div>
 			<div class="col item">
 				<span class="title">Test Positivity Rate</span>
-				<span class="counts" id="positivityRateCont"><span id="positivityRate">0,00,000</span>% <span class="material-icons activeArrow">arrow_upward</span></span>
-
+				<span class="counts"><span id="positivityRate">0,00,000</span>%</span>
+				<span id="positivityRateCont" class="counts-graph red">
+					<span id="positivityRate-per" class="value">0,00,000</span>
+					<span class="material-icons activeArrow">arrow_upward</span>
+				</span>
+				
 				<!--<span class="counts-graph red"><span class="value">0,00,000</span><span class="material-icons">arrow_upward</span></span>-->
 			</div>
 			<div class="col item">
 				<span class="title">Vulnerable Vaccinated</span>
-				<span class="counts" id="vaccinatedCont"><span id="vaccinated">0,00,000</span> <span class="material-icons activeArrow">arrow_upward</span></span>
+				<span class="counts" id="vaccinatedCont">
+					<span id="vaccinated">0,00,000</span>
+					<span id="VCCContDiff" class="counts-graph red">
+						<span id="VCCContDiffPer" class="value">0,00,000</span>
+						<span class="material-icons activeArrow">arrow_upward</span>
+					</span>
+				</span>
 			</div>
 		</div>
 	</div>
@@ -144,7 +179,7 @@
 <div class="page-body" style="background: #E5E5E5">
 	<div class="container-fluid">
 		<div class="whitecard">
-			<h5>Rapid expansion in Government Hospital Beds</h5>
+			<h5>Rapid expansion in Hospital Beds</h5>
 			<div class="row">
 				<div class="col-12 col-md-4">
 					<div class="white-section">
@@ -190,7 +225,7 @@
 				<div class="col-12 col-md-4">
 					<div class="white-section">
 						<div class="card-text">
-							Total beds in government hospitals are 9538 on April 20th as compared to 3546 on March 21st
+							Total beds in hospitals are 9538 on April 20th as compared to 3546 on March 21st
 						</div>
 					</div>
 				</div>
@@ -199,7 +234,7 @@
 		</div>
 
 		<div class="whitecard">
-			<h5>Doubled Government ICU and Oxygen beds in single month</h5>
+			<h5>Doubled ICU and Oxygen beds in single month</h5>
 			<div class="row">
 				<div class="col-12 col-md-4 border-right">
 					<h6 class="text-center">Beds with oxygen facility </h6>
@@ -288,15 +323,9 @@
 			<div class="row">
 				<div class="col-12 col-md-4">
 					<div class="white-section">
-<<<<<<< HEAD
 						<div class="card-section">
 							<span class="date">Vaccinated by 20th April 21</span>
 							<span class="numbers">7 lakh+</span>
-=======
-						<div class="card-section displayflex">
-							<span class="numbers">85</span>
-							<span class="date custom-width">Government facilities</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 						</div>
 					</div>
 				</div>
@@ -310,15 +339,9 @@
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="white-section">
-<<<<<<< HEAD
 						<div class="card-section">
 							<span class="date">Vaccination Centers</span>
 							<span class="numbers">150+</span>
-=======
-						<div class="card-section displayflex">
-							<span class="numbers">67</span>
-							<span class="date custom-width">Private facilities</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 						</div>
 					</div>
 				</div>
@@ -333,14 +356,8 @@
 				</div>
 				<div class="col-12 col-md-4">
 					<div class="white-section">
-<<<<<<< HEAD
 						<div class="card-text">
 							>10% of population vaccinated at rapid pace
-=======
-						<div class="card-section displayflex">
-							<span class="numbers">05</span>
-							<span class="date custom-width">24x7 vaccination</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 						</div>
 					</div>
 				</div>
@@ -361,29 +378,17 @@
 					<div class="row">
 						<div class="col-12 col-md-6">
 							<div class="white-section">
-<<<<<<< HEAD
 								<div class="card-section">
 									<span class="date">Near 100%</span>
 									<span class="numbers">Coverage of Health Care Workers</span>
-=======
-								<div class="card-section displayflex">
-									<span class="numbers">100%</span>
-									<span class="date">Coverage of Health Care Workers</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 								</div>
 							</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="white-section">
-<<<<<<< HEAD
 								<div class="card-section">
 									<span class="date">73,000+</span>
 									<span class="numbers">Front line workers vaccinated</span>
-=======
-								<div class="card-section displayflex">
-									<span class="numbers">70,000+</span>
-									<span class="date">Front line workers vaccinated</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 								</div>
 							</div>
 						</div>
@@ -398,24 +403,18 @@
 					<div class="row">
 						<div class="col-12 col-md-6">
 							<div class="white-section">
-								<div class="card-section displayflex">
-									<span class="numbers">4</span>
-									<span class="date">Large covid care centres in April</span>
+								<div class="card-section">
+									<span class="date">4</span>
+									<span class="numbers">Large covid care centres in April</span>
 								</div>
 							</div>
 							<p>Increased beds from 200 to 1250 in one month </p>
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="white-section">
-<<<<<<< HEAD
 								<div class="card-section">
-									<span class="date">contact tracing</span>
+									<span class="date">Contact Tracing</span>
 									<span class="numbers">Additional teams deployed</span>
-=======
-								<div class="card-section displayflex">
-									<span class="numbers">200-1250</span>
-									<span class="date">Increase in beds from Mar to Apr</span>
->>>>>>> e4ec5090fbb32eb44f0251d93a2597cd120a76e4
 								</div>
 							</div>
 							<p>We regularly trace and contact 80 to 90 thousand people daily </p>
@@ -426,10 +425,6 @@
 				</div>
 			</div>
 		</div>			
-		
-
-
-		
 	</div>
 </div>
 		<footer class="footer-section">
@@ -446,7 +441,7 @@
 	<script src="js/titles.js"></script>
 	<!--<script src="js/SupportiveFunctions.js"></script>
 	 <script src="js/main.js"></script> -->
-	<script src="js/prepared-data.js?v=1.0.0"></script>
+	<script src="js/prepared-data.js?v=1.0.2"></script>
 	<script src="js/setup.js"></script>
 </body>
 

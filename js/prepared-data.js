@@ -10,11 +10,11 @@ var __demographic_Details_MF=[];
 var __comorbidity_Details=[];
 var __vaccination_DetailsWeek=[];
 var __date="";
-var _yesterday_active = 6434;
-var _yesterday_deaths = 53;
-var _yesterday_recovered = 304492;
-var _yesterday_positive_rate = 24.51;
-var _yesterday_vcc = 672252;
+var _yesterday_active = 54696;
+var _yesterday_deaths = 54;
+var _yesterday_recovered = 310965;
+var _yesterday_positive_rate =21.96;
+var _yesterday_vcc = 691927;
 
 
 $(document).ready(function(){
@@ -49,7 +49,7 @@ $(document).ready(function(){
 		daily_RAT:null,
 	}
 
-	$.getJSON('data/data-19-april-21.json', function(jd) {
+	$.getJSON('data/data-20-april-21.json', function(jd) {
 
 		$.each(jd, function(key,value){
 			__date = value.date;
@@ -94,19 +94,19 @@ $(document).ready(function(){
 		    odr.update(totRecoverdGroth);
 		}
 
-
-	    var PosRateArrow = parseFloat(__hot_details.test_positive_rate.replace("%")) - parseFloat(_yesterday_positive_rate);
+		//alert(__hot_details.test_positive_rate +""+ )
+	    var PosRateArrow = (parseFloat(__hot_details.test_positive_rate.replace("%")) - parseFloat(_yesterday_positive_rate)).toFixed(2);
 	    if(PosRateArrow > 0 ){
+
 	    	$("#positivityRateCont").addClass("red");
 	    	$("#positivityRateCont").find(".activeArrow").html("arrow_upward");
 	    }else{
+	    	alert("up");
 	    	$("#positivityRateCont").addClass("green");
 	    	$("#positivityRateCont").find(".activeArrow").html("arrow_downward");
 	    }
-
-
-
-	     
+	    $("#positivityRate-per").html(PosRateArrow+"%");
+ 
 	    
 	    var el4 = document.querySelector('#deaths-num-new');
 	    if(el4 != null){
@@ -119,21 +119,21 @@ $(document).ready(function(){
 		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
 		    od4.update(__hot_details.test_positive_rate);
 		}
-
+		var totalActToday = parseInt(value.total_active) -parseInt(_yesterday_active);
 	    var el4 = document.querySelector('#active-num-new-per');
 	    if(el4 != null){
 		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
-		    od4.update( parseInt(value.daily_cases));
+		    od4.update( parseInt(totalActToday));
 		}
-
-	    if(parseInt(_yesterday_active) > parseInt(value.daily_cases)){
-	    	$(".activeArrow").html("arrow_downward");
-	    	$(".activeArrow").parent(".counts-graph").removeClass("red");
-	    	$(".activeArrow").parent(".counts-graph").addClass("green");
+		
+	    if( totalActToday < 0){
+	    	$("#activeNumnew-per").find(".activeArrow").html("arrow_downward");
+	    	$("#activeNumnew-per").removeClass("red");
+	    	$("#activeNumnew-per").addClass("green");
 	    }else{
-	    	$(".activeArrow").html("arrow_upward");
-	    	$(".activeArrow").parent(".counts-graph").addClass("red");
-	    	$(".activeArrow").parent(".counts-graph").removeClass("green");
+	    	$("#activeNumnew-per").find(".activeArrow").html("arrow_upward");
+	    	$("#activeNumnew-per").removeClass("green");
+	    	$("#activeNumnew-per").addClass("red");
 	    }
 	    
 	    var perLastActive = (parseInt(value.total_active) * 100  / parseInt(__hot_details.total_cases)).toFixed(2);
@@ -319,14 +319,21 @@ $(document).ready(function(){
 		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
 		    od4.update(totalVacc);
 		}
-
+		var vccDiff = totalVacc - _yesterday_vcc;
 	    if(totalVacc > _yesterday_vcc ){
-	    	$("#vaccinatedCont").addClass("green");
+	    	$("#VCCContDiff").addClass("green");
 	    	$("#vaccinatedCont").find(".activeArrow").html("arrow_upward");
 	    }else{
-	    	$("#vaccinatedCont").addClass("red");
+	    	$("#VCCContDiff").addClass("red");
 	    	$("#vaccinatedCont").find(".activeArrow").html("arrow_downward");
 	    }
+	
+		var el4 = document.querySelector('#VCCContDiffPer');
+	    if(el4 != null){
+		    var od4 = new Odometer({ el: el4, value: 0, theme: 'minimal' });
+		    od4.update(vccDiff);
+		}
+
 
 	    var el4 = document.querySelector('#totalVacc');
 	    if(el4 != null){

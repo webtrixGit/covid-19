@@ -12,8 +12,25 @@
 	<title>Pune - PMC Covid Dashboard</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/fav/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/fav/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/fav/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/fav/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+	<link rel="manifest" href="/fav/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 	
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -65,13 +82,13 @@
 	<header class="page-header">
 		<div class="container-fluid">
 			<div class="row first">
-				<div class="col-3 col-md-3">
+				<div class="col-2 col-md-3">
 					<a href="https://graduateinstitute.ch/I-DAIR"><img src="img/bjp-logo-1-1.png" alt="covid-19 corona pune pune-corona update dashboard pune-corona-virus healthcare capacity vulnerabilities guidelines" class="logo"></a>
 				</div>
-				<div class="col-6 col-md-6 hidden-xs">
+				<div class="col-5 col-md-6 hidden-xs">
 					<h1 class="c-w text-center page-title">Pune - <span class="fwn">PMC Covid Dashboard</span></h1>
 				</div>
-				<div class="col-3 col-md-3 rightMenu">
+				<div class="col-5 col-md-3 rightMenu">
 					<a href="/index.html">Home</a>
 					<a href="/dashboard.html">Dashboard</a>
 				</div>
@@ -86,7 +103,11 @@
 			</div>
 			<div class="col item">
 				<span class="title">Active Cases (<span class="active-Case-Per">56</span>%)</span>
-				<span class="counts" id="active-num-new">1,54,551</span><span class="counts-graph red"><span id="active-num-new-per" class="value">00,000</span><span class="material-icons activeArrow">arrow_upward</span></span>
+				<span class="counts" id="active-num-new">1,54,551</span>
+				<span id="activeNumnew-per" class="counts-graph red">
+					<span id="active-num-new-per" class="value">00,000</span>
+					<span class="material-icons activeArrow">arrow_upward</span>
+				</span>
 			</div>
 			<div class="col item">
 				<span class="title">Recovered (<span class="recovered-Case-Per">34</span>%)</span>
@@ -98,13 +119,23 @@
 			</div>
 			<div class="col item">
 				<span class="title">Test Positivity Rate</span>
-				<span class="counts" id="positivityRateCont"><span id="positivityRate">0,00,000</span>% <span class="material-icons activeArrow">arrow_upward</span></span>
-
+				<span class="counts"><span id="positivityRate">0,00,000</span>%</span>
+				<span id="positivityRateCont" class="counts-graph red">
+					<span id="positivityRate-per" class="value">0,00,000</span>
+					<span class="material-icons activeArrow">arrow_upward</span>
+				</span>
+				
 				<!--<span class="counts-graph red"><span class="value">0,00,000</span><span class="material-icons">arrow_upward</span></span>-->
 			</div>
 			<div class="col item">
 				<span class="title">Vulnerable Vaccinated</span>
-				<span class="counts" id="vaccinatedCont"><span id="vaccinated">0,00,000</span> <span class="material-icons activeArrow">arrow_upward</span></span>
+				<span class="counts" id="vaccinatedCont">
+					<span id="vaccinated">0,00,000</span>
+					<span id="VCCContDiff" class="counts-graph red">
+						<span id="VCCContDiffPer" class="value">0,00,000</span>
+						<span class="material-icons activeArrow">arrow_upward</span>
+					</span>
+				</span>
 			</div>
 		</div>
 	</div>
@@ -212,19 +243,19 @@
 						  	<div class="row">
 						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
 						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in home quarantine (<span id="homeQuarantinePre"></span>)</span>
+							  			<span class="statistics-title-sub text-left">Active cases in home quarantine (<span id="homeQuarantinePre"></span>%)</span>
 							  			<span class="statistics-count" id="homeQuarantine">45,033</span>
 						  			</div>
 						  		</div>
 						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
 						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in hospitals (<span id="inHospitalsPre"></span>)</span>
+							  			<span class="statistics-title-sub text-left">Active cases in hospitals (<span id="inHospitalsPre"></span>%)</span>
 							  			<span class="statistics-count" id="inHospitals">8,293</span>
 							  		</div>
 						  		</div>
 						  		<div class="col-md-4 col-sm-12 col-lg-4 mb-2">
 						  			<div class="statistics-bg pl-3">
-							  			<span class="statistics-title-sub text-left">Active cases in Covid care centres (<span id="inCCCPre"></span>)</span>
+							  			<span class="statistics-title-sub text-left">Active cases in Covid care centres (<span id="inCCCPre"></span>%)</span>
 							  			<span class="statistics-count" id="inCCC">10,000</span>
 							  		</div>
 						  		</div>
@@ -234,7 +265,7 @@
 				    		<canvas id="myChart" width="1000" height="500"></canvas>
 				    	</div>-->
 				    	<div class="clearfix">&nbsp;</div>
-				    	<h6 style="font-weight: bold;" class="pl-3">Government hospitals usage&nbsp;&nbsp;<span class="extraLink"><small><a target"_blank" href="https://divcommpunecovid.com/ccsbeddashboard/hsr">Hospital wise Availability Dashboard, Click here</a></small></span></h6>
+				    	<h6 style="font-weight: bold;" class="pl-3">Hospitals usage&nbsp;&nbsp;<span class="extraLink"><small><a target"_blank" href="https://divcommpunecovid.com/ccsbeddashboard/hsr">Hospital wise Availability Dashboard, Click here</a></small></span></h6>
 				    	<div class="col-sm-12 col-md-12 center dataTabelMax">
 							<table class="table infrastructure-use">
 							</table>
@@ -420,7 +451,7 @@
 				<div class="card-header" id="headingOne">
 				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
 				    <div class="card-title">
-				      Demographic analysis&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				      Demographic analysis&nbsp;<small>Last updated <span class="WeeklyDate"></span></small>
 				    </div>
 				    <div class="action">
 				    	<span class="material-icons add">add</span>
@@ -490,7 +521,7 @@
 				<div class="card-header" id="headingOne">
 				  <h2 class="mb-0 title-colors" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
 				    <div class="card-title">
-				      Controlling the spread&nbsp;<small>Last updated <span class="todayDate"></span></small>
+				      Controlling the spread&nbsp;<small>Last updated <!--<span class="todayDate"></span>--> 19 April 2021</small>
 				    </div>
 				    <div class="action">
 				    	<span class="material-icons add">add</span>
@@ -586,7 +617,7 @@
 	<script src="js/titles.js"></script>
 	<!--<script src="js/SupportiveFunctions.js"></script>
 	 <script src="js/main.js"></script> -->
-	<script src="js/dashboard.js?v=1.0.0"></script>
+	<script src="js/dashboard.js?v=1.0.1"></script>
 	<script src="js/setup.js"></script>
 </body>
 
