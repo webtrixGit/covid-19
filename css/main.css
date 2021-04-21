@@ -184,9 +184,6 @@ margin:10px 0px 20px 0px;
     text-align: right;
     padding-right: 10px;
 }
-.card-text {
-    width: 80%;
-}
 .whitecard .card-section .numbers{
 font-size: 20px;
 font-weight: bold;
@@ -204,7 +201,8 @@ font-weight: bold;
     float: left;
     margin-right: 12px;
 }
-.whitecard .white-section{     border-right: 1px solid #ccc;
+.whitecard .white-section{     
+	/*border-right: 1px solid #ccc;*/
     display: inline-block;}
 
 .scroll .top_section-details .item .counts-graph{
