@@ -185,20 +185,26 @@ margin:10px 0px 20px 0px;
     padding-right: 10px;
 }
 .card-text {
-    width: 80%;
+    width: 88%;
+    line-height: 1.4rem;
 }
 .whitecard .card-section .numbers{
-font-size: 20px;
+font-size: 28px;
 font-weight: bold;
+margin-right: 10px;	
 }
 .rightMenu a{
     margin: 0px 16px;
+}
+.card-section.displayflex {
+    display: inline-flex !important;
+    width: fit-content !important;
 }
 .whitecard .card-section{
 	background: rgba(218, 211, 211, 0.4);
     display: grid;
     height: 100%;
-    width: fit-content;
+    width: max-content;
     padding: 10px;
     border-radius: 5px;
     float: left;
@@ -212,7 +218,9 @@ font-weight: bold;
 	font-size: 10px;
 	height: 20px;
 }
-
+span.date.custom-width {
+    width: 81px;
+}
 .scroll .top_section-details .item .counts-graph .material-icons {
     font-size: 14px;
 }
@@ -565,6 +573,15 @@ background: #020b25  !important;;
 .dow{
 	width: 98%;
 }
+.whitecard h5 {
+    margin: 10px 0px 20px 0px;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+}
+/*.whitecard.active h5{
+    color: #511D5C;
+}*/	
 @media screen and (max-width: 875px){
 
 	.page-body {
